@@ -1,19 +1,154 @@
-Introduction to Python  Complete Basics
-1. What is Python?
+What is programming
+Programming is the process to willing the instructions that the computer will be development to do.
+computer cannot understand the human language  but it convert the machine language .A computer bridge between the computer and human.
 
-Python is a high-level, interpreted, general-purpose programming language.
+Real time examples:
+ATM Machine
+Instragram
+Youtube
+Food Delivery boy
 
-It was created by Guido van Rossum and first released in 1991.
+What is programming language
+Programming language is the language is the process to communicate between the humans and computer.
 
-Python is widely used for:
+Real time examples:
+python 
+java
+c
+c+
 
-Web development+++++++++++++++++++++++++++++++++++++++++
-Data Science
-Machine Learning
-Artificial Intelligence
-Automation
-Software development
-Testing
-Data analysis
-Cybersecurity
-Scripting
+Transalator:
+Transalator is a tool is a translate between one language in to the another language.
+
+There are two types of Transalator
+Complier
+Interpreters
+
+complier:A complier is a tool that translate into High level code into Low level  code 
+human can understand the high level language but machine can understand the low level language.
+It translate the whole code at a time
+
+Interpreters: A Interpreters is a computer program that directly  execute the source code into line by line.
+
+what is paradigms:
+paradigms is a method  or approach used to write and organize programs.
+Types of paradigms
+paradigms is a generally follow the different programming styles is called paradigms.
+procedural oriented programming(pop)
+object oriented programming(oop)
+
+Procedural oriented programming:
+The program is divided in to small programs
+it makes the execute the step by step process
+
+The main focus:
+function
+Logic
+sequence of steps
+
+Examples:
+pascal
+Basic
+
+Real time example:
+Food ordering process
+
+characteristics of pop:
+Function based
+small programs
+Top to bottom
+less code
+data is less secure
+
+advantages of pop:
+easy to write
+easy to learn
+Fast execution
+
+Disadvantages of pop:
+Diffcult to large projects
+less reaulibity
+
+
+objected Oriented programming(oop):
+object oriented programming organize the code with class and object
+
+example:
+banking
+product
+employee
+customer
+
+real time example:
+Amazon product
+product properties:
+Product name
+product price
+Rating 
+stock
+product bussiness:
+Add to cart 
+buy
+and reviews
+
+characteristics of oop:
+class: class is a blue print or template of the object
+object: object is a method is used to a classs 
+Encapsulation: wrapping of the data and method to a single unit and hiding intial data is inside the acess.
+Inheritance: A mechanism to one class of a accuries the data and method to the another data
+polymorphism:Many forms in to the function of method and object behave differently based on context/
+
+advantages of oops:
+Reausibility code 
+Easy Maintaince
+Easy scalability
+
+Disadvantages of oops:
+
+mory memory usage 
+slower execution
+
+What is Python?
+Python is a high-level, interpreted, general-purpose programming language created to make
+programming simple and readable.
+Python emphasizes:
+● Simplicity
+● Readability
+● Productivity
+Python code often looks similar to English sentences.
+
+Feautres of python:
+simple:python as a straight forward syntax
+It is used to learn os easily
+object oriented programming: oop is organize the code class and objects.
+Interpreter:Interpreteris atool of one level to the another language is called Interpreter.
+It is used to styep by step process
+cross plat form: python is used to all class platforms .mac.
+large standard libary: many use full models in python
+Exetensible:
+
+Memory Allocation: Procedural vs oops
+Understanding memory allocation is important because it explains how data is stored and
+managed.
+Procedural Programming Memory Allocation
+In Procedural Programming:
+● Memory mainly stores variables and functions.
+● Functions are called one after another.
+● Data is usually shared globally or passed
+
+
+OOP Memory Allocation
+In OOP:
+Objects are created in Heap Memory.
+Each object stores:
+● Attributes
+● Methods Reference
+
+
+
+
+
+
+
+
+
