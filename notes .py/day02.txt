@@ -1,19 +1,264 @@
-Introduction to Python  Complete Basics
-1. What is Python?
+1. Tokens in Python
+Definition:
+ Tokens are the smallest building blocks or units of a Python program.
+Everything you write in a Python program (like keywords, identifiers, literals, operators, etc.) is a token
 
-Python is a high-level, interpreted, general-purpose programming language.
+Types of token 
+they are mainly used for tokens
 
-It was created by Guido van Rossum and first released in 1991.
+Type
+Example
+Explanation
+1. Keywords
+if, else, for, while, class, import
+Predefined reserved words that have special meaning in Python.
+2. Identifiers
+x, student_name, calculate_sum
+Names given to variables, functions, classes, etc.
+3. Literals
+10, 'Hello', 3.14, True
+Fixed values or data given directly in the code.
+4. Operators
++, -, *, /, =
+Symbols that perform operations on data.
+5. Punctuators / Delimiters
+(), [], {}, ,, :
+Used for grouping or separating parts of code.
 
-Python is widely used for:
 
-Web development
-Data Science
-Machine Learning
-Artificial Intelligence
-Automation
-Software development
-Testing
-Data analysis
-Cybersecurity
-Scripting
+ 2. Statements
+Definition:
+ A statement is an instruction that Python can execute.
+Examples:
+x = 10      	# Assignment statement
+ print(x)    	# Function call statement
+ if x > 5:   	# Conditional statement
+ 	print("x is big")
+ Each line that performs some action is a statement in Python.
+
+ 3. Identifiers
+Definition:
+ An identifier is the name you give to variables, functions, classes, etc.
+Example:
+name = "Jani"
+ age = 16
+ def greet():
+ 	print("Hello")
+Rules for Identifiers
+ Must begin with a letter (A-Z, a-z) or underscore _
+  Can contain letters, digits (0-9), and underscores
+  Cannot start with a digit
+  Cannot use Python keywords (like if, while, class) as names
+  Case sensitive (name and Name are different)
+
+ 4. Comments
+Comments are used to describe your code and are not executed by Python.
+Single-line comment:
+Use the # symbol.
+# This is a single-line comment
+ x = 10  # This comment is after code
+Multi-line comment:
+You can use triple quotes (''' or """) for multiple lines.
+'''
+ This is a
+ multi-line
+ comment
+ '''
+ 5. Variables
+Variables are names that store data values.(General)
+ in python variable is a name that bounds to object
+Objects are stored in heap memory
+Example:
+x = 10
+ name = "Jani"
+When you assign a value to a variable, Python automatically creates it.
+
+Rules for Variables
+Must start with a letter or underscore _
+Can contain letters, digits, and underscores
+Are case-sensitive
+Should not use keywords
+Don’t need explicit declaration (Python assigns type automatically)
+
+ 6. Multiple Assignment
+You can assign values to multiple variables at once.
+Example:
+a, b, c = 10, 20, 30
+ print(a, b, c)
+You can also assign the same value to multiple variables:
+x = y = z = 100
+ 7. Reassignment
+You can change the value of a variable anytime.
+Example:
+x = 5
+ x = 10   # Reassigned
+ print(x) # Output: 10
+
+ 8. Swapping Variables
+You can swap the values of two variables easily.
+Example:
+a = 10
+ b = 20
+ a, b = b, a
+ print(a, b)  # Output: 20 10
+Python does this internally without using a temporary variable.
+
+ 9. Deleting Variables
+You can delete a variable using the del keyword.
+Example:
+x = 10
+ del x
+ print(x)   # Error: NameError, because x no longer exists
+
+ 10. Keywords
+Definition:
+ Keywords are predefined words that have special meanings in Python.
+ You cannot use them as variable names or identifiers.
+Example keywords:
+False, True, None, if, else, elif, while, for, break, continue,
+ def, return, import, from, as, class, try, except, finally, global,
+ nonlocal, lambda, and, or, not, is, in, pass, raise, yield
+To see all keywords in your Python version:
+import keyword
+ print(keyword.kwlist)
+
+ Summary
+Concept
+Description
+Example
+Tokens
+Smallest parts of code
+x = 10 → identifiers, literals, operators
+Statements
+Executable instructions
+print("Hello")
+Identifiers
+Names for variables, functions, etc.
+name = "Jani"
+Comments
+Notes ignored by Python
+# this is a comment
+Variables
+Containers for storing data
+x = 5
+Multiple Assignment
+Assigning many values at once
+a, b = 1, 2
+Reassignment
+Changing a variable’s value
+x = 10
+Swapping
+Exchanging variable values
+a, b = b, a
+Deleting Variables
+Removing a variable
+del x
+Keywords
+Reserved words
+if, else, for, True
+
+
+Python Execution Process
+Unlike languages like C or C++, Python is an interpreted language.
+Python Execution Flow
+Python Source Code (.py)
+          │
+          ▼
+ Python Compiler
+          │
+          ▼
+ Bytecode (.pyc)
+          │
+          ▼
+Python Virtual Machine (PVM)
+          │
+          ▼
+Machine Code
+          │
+          ▼
+Output
+Explanation
+Step 1: Source Code
+You write the Python program.
+Example:
+print("Hello")
+Saved as
+main.py
+
+Step 2: Compilation
+Python first compiles the source code into Bytecode.
+Bytecode is an intermediate code.
+Extension:
+.pyc
+Python automatically creates bytecode.
+Example:
+main.py
+        ↓
+main.pyc
+
+Step 3: Python Virtual Machine (PVM)
+The bytecode is executed by the Python Virtual Machine (PVM).
+The PVM converts bytecode into machine instructions that the operating system can execute.
+
+Python Execution Modes
+Python provides two execution modes.
+1. Interactive Mode
+Interactive mode executes one statement at a time.
+>>>
+Example
+>>> print("Hello")
+Hello
+
+>>> 10+20
+30
+
+>>> name="Raju"
+
+>>> print(name)
+Raju
+Process
+Statement
+    ↓
+Compile
+    ↓
+Execute
+    ↓
+Output
+Every statement is immediately compiled and executed.
+Advantages
+Learning Python
+Testing small programs
+Debugging
+Quick calculations
+Experimenting with code
+
+2. Script Mode
+In Script Mode, programs are written inside a file.
+Example
+example.py
+
+print("Hello")
+
+a=10
+b=20
+
+print(a+b)
+Run the file.
+python example.py
+Process
+Source File
+      ↓
+Compilation
+      ↓
+Bytecode
+      ↓
+Execution
+      ↓
+Output
+Advantages
+Large applications
+Project development
+Code reuse
+Easy maintenance
+
+
