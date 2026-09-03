@@ -1,0 +1,299 @@
+'''a = int(input())
+if a%4==0 and a%100!=0 or a%400==0:
+    print("It's a leap year")
+else:
+    print("It's not a leap year")'''
+'''Calculate the sum of numbers from 1 to 10 using a for loop ? '''
+'''s = 0
+for i in range(1,11):
+    s+=i
+print(s)'''
+'''Print even numbers from 1 to 10 using a for loop?'''
+'''for i in range(0,11):
+    if i%2==0:
+        print(i)'''
+'''multiplycation iof even numbers upto 20'''
+'''m = 1
+for i in range(1,21):
+    if i%2==0:
+        m*=i
+print(m)'''
+'''Calculate the factorial of a number using a for loop?'''
+'''n = int(input())
+fact = 1
+for i in range(1,n+1):
+    fact = fact*i
+print(fact) '''
+'''Print elements of a list using a for loop ?'''
+'''l1=[1,2,3,4,5]
+for i in range(len(l1)):
+    print(l1[i])'''
+'''Find the maximum value in a list using a for loop ?'''
+'''l1=[5,8,11,23,67]
+for i in range(len(l1)):
+    max>l1:
+        print
+(l1[i])'''
+'''n=int(input("Enter the cube numbers:"))
+for i in range(1,n+1):
+    cube=i*i*i
+    print(cube-)'''
+    
+    
+# l=[1,2,3,6,7,9]
+# count=0
+# for i in l:
+#     count+=1
+#     print(l[0])
+    
+    
+'''name = "shivasairam" 
+vowels = "aeiou"
+count =0
+for char in name:
+    if char not in vowels:
+        count+=1
+
+    
+print(count)'''
+
+'''n=int(input())
+fact=1
+for i in range(1,n+1):
+    fact=fact*i
+print(fact)'''
+
+'''a = [1, 2, 3, 4, 5]
+b = [3, 4, 5, 6, 7]
+
+for i in a:
+    if i in b:
+        print(i)'''
+        
+'''l=[2,3,4,5,6,7,8]
+m=[3,4,6,7,8,3,2]
+for i in l:
+    if i in m:
+        print(i)'''
+        
+'''n=int(input())
+mul=1
+for i in range(1,n+1):
+    if n%i==0:
+        mul=mul*1
+    print(f"{n}*{i}={n*i}")'''
+    
+'''a="madam"
+for i in range(len(a)-1,-1,-1):
+    print(a[i], end="")'''
+    
+'''a=int(input())
+square=1
+for i in range(1,11):
+    square=i*i
+    print(square)'''
+    
+'''l=[1,2,3,4,5,6,7,8,9,10]
+square=1
+for i in l:
+    square=i*i
+    print(square)'''
+    
+'''m="python"
+count=0
+for i in m:
+    count+=1
+    print(count)'''
+    
+'''n=int(input())
+sum=0
+for i in range(1,n+1):
+    sum+=1
+print(sum)'''
+
+'''n=int(input())
+a=1
+for i in range(2,(n//2)+1):
+    if n%i==0:
+        a+=1
+if a<2:
+    print("n is prime number")
+else:
+    print("n is not a prime number")'''
+    
+'''def calculate_price(n):
+    a=1
+    for i in range(2,(n//2)+1):
+        if n%i==0:
+            a+=1
+    if a<2:
+        return n
+n=int(input())
+for i in range(2,n):
+    res=calculate_price(i)
+    if res==None:
+        continue
+    print(res)'''
+    
+'''my_list=[22,5,6,7,8,33,55]
+m=0
+for i in my_list:
+    if m<=i:
+        m=i
+print(i)'''
+
+'''my_list=[15,6,7,8,44,33,5,1]
+m=9999
+for i in my_list:
+    if m>i:
+        m=i
+print(i) '''
+
+'''n = int(input())
+a = 0
+b = 1
+for i in range(n):
+    print(a)
+    a,b = b, a+b'''
+    
+'''l=[2,3,5,4] 
+s=0
+for i in l:
+    s=s+i
+    avg=s/len(l)
+print(avg)'''
+
+'''base = int(input("Enter the base: "))
+power = int(input("Enter the power: "))
+
+result = 1
+
+for i in range(power):
+    result = result * base
+
+print("Answer:", result)'''
+
+'''a=int(input())
+b=int(input())
+c=1
+for i in range(b):
+    c=c*b
+print(c)'''
+
+'''l=[1,2,3,4]
+for i in l:
+  print(l[::-1]) '''
+  
+'''l=[6,8,5,7]
+s=0
+for i in l:
+    s=s+i
+    avg=s/len(l)
+print(avg)'''
+
+
+'''l=[1,2,3,4,5,6]
+c=0
+for i in l:
+    c=c+1
+print(c)'''
+
+'''n=5
+c=0
+for i in range(1,6):
+    for j in range(i,5):
+        c=c+1
+        print(c,end=" ")
+    print() '''
+    
+'''l=[2,4,5,6,8]
+p=1
+for i in l:
+    p=i*i
+    print(p)'''
+
+'''for i in range(1,101):
+    if i%2!=0:
+        print(i,end=" ")'''
+        
+''' Find and print the position(index) of an element in a list using a for loop'''
+'''l=[1,2,3,6,8] 
+for index, elements in enumerate(l):
+    print(index,elements)'''
+    
+'''l=[1,2,0,6,8,0] 
+for index, elements in enumerate(l):
+    if elements==0:
+        print(index,elements)'''
+        
+'''l=[1,2,0,6,6,8,0]
+middle=len(l)//2
+for index, elements in enumerate(l):
+    if index==middle:
+        print(elements)'''
+        
+'''l=[1,2,3,5,6]
+for i in range(1,7):
+    if i not in l:
+        print("missing number:",i)'''
+        
+        
+a = [1, 2, 3, 4, 5]
+b = [3, 4, 5, 6, 7]
+
+for i in a:
+    if i in b:
+        print(i)        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+
+
+
+                
+
+
+       
+
+
+    
+
+    
+
+    
