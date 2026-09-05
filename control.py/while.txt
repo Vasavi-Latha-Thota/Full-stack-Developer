@@ -1,0 +1,100 @@
+'''n=1
+sum=0
+while(n<100):
+    n+=1
+    if n%2==0:
+        sum+=n
+print(sum)'''
+'''Write a while loop that prints all even numbers between 1 and 50.'''
+'''n = 1
+while(n<50):
+    n+=1
+    if n%2==0:
+        print(n)'''
+'''Use a while loop to calculate the factorial of a given number.'''
+'''n=int(input())
+fact = 1
+i = 1
+while(i<=n):
+    fact = fact * i
+    i=i+1
+print(fact)'''
+'''n=int(input())
+fact = 1
+while(n>0):
+    fact=fact*n
+    n=n-1
+print(fact)'''
+'''Create a program that calculates the sum of the digits of a given integer using a while loop.'''
+'''n=int(input())
+sum = 0
+i=1
+while(i<=n):
+    sum=sum+i
+    i=i+1
+print(sum) '''
+'''Generate a multiplication table for a given number using a while loop.'''
+'''n=int(input("Enter the multiplication of number:"))
+mul=1
+i=0
+while(n>i):
+        mul*=i
+        i+=1
+        print(f"{n} * {i} = {n*i}")'''
+'''Write a program to find all the factors of a given number using a while loop.
+n=int(input())
+i=1
+while(i <= n):
+    if n % i == 0:
+       print(i)
+    i=i+1'''
+'''Implement a program that reverses even numbers using a while loop.'''
+'''n=int(input("enter the reverse number:"))
+rev=0
+while(n<0):
+    r%n==0
+    rem=rev*10+r
+    n//10
+    n=n-1
+    print(n)'''
+    
+'''Write a program using a while loop to generate the first n terms of the Fibonacci sequence.'''
+'''n=int(input())
+a=0
+b=1
+c=0
+while c<n:
+    print(a,end=" ")
+    c=a+b
+    a=b
+    b=a
+    c+=1'''
+    
+num = 1234  # Your number here
+reversed_num = 0
+
+# Check if the number is actually even
+if num % 2 == 0:
+    while num > 0:
+        digit = num % 10                        # Get the last digit
+        reversed_num = (reversed_num * 10) + digit  # Add it to the reversed number
+        num = num // 10                         # Remove the last digit
+
+    print(reversed_num)
+else:
+    print("The number is not even.")
+    
+    
+    
+    
+
+
+    
+    
+  
+    
+
+
+    
+
+    
