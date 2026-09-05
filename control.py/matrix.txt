@@ -1,0 +1,61 @@
+# n=input().split(",")
+# #print(n)
+# l=[]
+# #print(l)
+# for i in range(len(n)):
+#     #print(i)
+#     l.append(int(n[i]))
+# print(l)
+# # m=0
+# # for i in l:
+# #     if(i > m):
+# #         m = i
+# # print(m)
+
+# m=9999999999999999999
+# for i in l:
+#     if(i<m):
+#         m=i
+# print(m)        
+        
+m = [[1, 2, 3], [23, 21, 45], [55, 3, 2]]
+#rows = 3/r
+#COLUMns= 3/c
+#m
+# m1=0
+# m2=99999999
+# for i in range(3):
+#     for j in range(3):
+#         #print(m[i][j])
+#         if(m[i][j]>m1):
+#             m1=m[i][j]
+#         if(m[i][j]<m2):
+#             m2=m[i][j]
+# print(m1)
+# print(m2)
+'''for i in range(3):
+    for j in range(3):
+        print(m[i][j], end=" ")
+    print()'''
+# for i in m:
+#     for j in i:
+#         print(j,end=" ")
+#     print() 
+l=[]
+# print(type(m[0]))
+# for i in range(len(m)):
+#     for j in range(len(m[i])):
+#         print(m[i][j], end = " ")
+#         #l.append(m[i][j])
+#     print()
+# print(l)    
+
+        
+
+
+
+
+        
+         
+
+    
