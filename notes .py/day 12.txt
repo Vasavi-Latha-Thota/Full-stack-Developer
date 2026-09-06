@@ -1,0 +1,64 @@
+# def Greet():
+#     print("Welcome to the functions name")
+# Greet()  
+# def add(a,b):
+#     print(a+b)
+# add(10,20)
+# add(20,30)
+# add(100,200)
+
+#positional arguments1:order is very very imp
+# def greet(name,age):
+#     print(f'name is {name} and age is {age}')
+# greet('ram',34)
+
+
+# return :
+#     used to return data to calling functions
+# 1.to called the function with arguments and with return type
+# 2.to called the function with arguments and without return type
+# 3.to called the function without args and with return type
+# 4.to called the function without args and without return type
+
+#1.to called the function with arguments and with return type
+# def add(a,b):
+#     c=a+b 
+#     return c
+# print(add(10,20)) 
+
+#to called the function with arguments and without return type
+# def add(a,b):
+#     print(a+b)
+# add(10,70)    
+
+#3.to called the function without args and with return type
+# def greet():
+#     return("Welcome to the codegnan")
+# greet()    
+
+#4.to called the function without args and without return type
+# def greet():
+#     print("hello")
+# greet()  
+
+#keyword arguments:orderded not matter
+# def marks(name,age,marks):
+#     print(f"name is {name} and age is {age} and marks is{marks}")
+# marks(name = 'raju',age = 23,marks = 80)    
+
+#default with parameters:
+# def countrydetails(country = "india"):
+#     print(f"my country name is:",country)
+# countrydetails("usa")
+# countrydetails()
+
+#orbitary arguments:if we don't now how many args then you add  *before args and then just the no of args is a tuple format
+# def itemsstore(*g):
+#     print(sum(g))
+# itemsstore(20,30,70,56,78)
+
+#keyword orbitary args:if we don't knoe how many key word aggs in the function then you can add ** before the argsthen just no of args is a dictionary format
+
+def studentdetails(**details):
+    print(details)
+studentdetails(name='ram',age=56,height=23,marks=67)    
