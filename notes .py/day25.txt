@@ -1,0 +1,797 @@
+# Errors and Exception Handling in Python
+
+## What is an Error in Python?
+
+An error is a problem in a program that stops it from running correctly.
+
+Errors can occur due to wrong logic, syntax mistakes, or invalid operations.
+
+## Types of Errors in Python
+
+Errors are mainly divided into two types:
+
+### 1. Syntax Errors
+
+A syntax error occurs when the rules of Python grammar are broken.
+
+These errors are detected before the program runs.
+
+### Example
+
+```python
+print("Hello"
+```
+
+### Output
+
+```text
+SyntaxError: '(' was never closed
+```
+
+---
+
+### 2. Runtime Errors (Exceptions)
+
+Runtime errors happen while the program is running.
+
+They occur when the program is syntactically correct but fails during execution.
+
+### Example
+
+```python
+x = 5 / 0
+```
+
+### Output
+
+```text
+ZeroDivisionError: division by zero
+```
+
+Runtime errors are commonly referred to as exceptions.
+
+# What is an Exception?
+
+An exception is an error that occurs during the execution of a program and disrupts the normal flow of the program.
+
+Exceptions can be handled using `try-except` blocks so that the program does not terminate unexpectedly.
+
+## Simple Explanation
+
+An exception is a runtime problem that occurs while the program is running.
+
+Python raises an exception when something unexpected or invalid happens, such as:
+
+* Dividing by zero
+* Converting invalid text to an integer
+* Accessing an invalid list index
+* Accessing a dictionary key that does not exist
+* Opening a file that does not exist
+
+## Real-Life Example
+
+Imagine you are watching a YouTube video and suddenly the internet connection is lost.
+
+The video stops because of an unexpected problem.
+
+This unexpected event is similar to an exception in a Python program.
+
+## Python Example
+
+```python
+a = int(input("Enter a number: "))
+b = int(input("Enter another number: "))
+
+print("Result:", a / b)
+```
+
+If the user enters `0` for `b`, Python raises:
+
+```text
+ZeroDivisionError: division by zero
+```
+
+The program stops unless the exception is handled.
+
+# Handling Exceptions
+
+To prevent the program from crashing, we can use `try-except`.
+
+```python
+try:
+    a = int(input("Enter a number: "))
+    b = int(input("Enter another number: "))
+    print("Result:", a / b)
+except ZeroDivisionError:
+    print("You cannot divide by zero!")
+```
+
+# Common Types of Exceptions in Python
+
+| Exception           | Reason                                             |
+| ------------------- | -------------------------------------------------- |
+| `ZeroDivisionError` | Division by zero                                   |
+| `ValueError`        | Invalid value, such as converting `"abc"` to `int` |
+| `TypeError`         | Invalid type operation, such as `5 + "abc"`        |
+| `IndexError`        | Accessing an invalid list index                    |
+| `KeyError`          | Accessing a non-existent dictionary key            |
+| `FileNotFoundError` | File does not exist                                |
+| `NameError`         | Using an undefined variable                        |
+| `AttributeError`    | Accessing an undefined attribute or method         |
+
+# Exception Handling Keywords
+
+Python provides four important keywords for exception handling:
+
+* `try`
+* `except`
+* `else`
+* `finally`
+
+## try
+
+The `try` block contains code that may cause an exception.
+
+```python
+try:
+    x = 10 / 0
+```
+
+## except
+
+The `except` block catches and handles an exception that occurs inside the `try` block.
+
+```python
+except ZeroDivisionError:
+    print("Division by zero is not allowed")
+```
+
+## else
+
+The `else` block executes only when no exception occurs in the `try` block.
+
+```python
+else:
+    print("Operation completed successfully")
+```
+
+## finally
+
+The `finally` block always executes, whether an exception occurs or not.
+
+It is commonly used for cleanup operations such as closing files or database connections.
+
+```python
+finally:
+    print("Program execution completed")
+```
+
+## Easy Way to Remember
+
+```text
+try     → Write risky code
+except  → Handle the exception
+else    → Execute when there is no exception
+finally → Always execute
+```
+
+# Complete Example
+
+```python
+try:
+    num = int(input("Enter a number: "))
+    result = 10 / num
+
+except ZeroDivisionError:
+    print("You cannot divide by zero.")
+
+except ValueError:
+    print("Invalid input. Please enter a number.")
+
+else:
+    print("Result is:", result)
+
+finally:
+    print("Program finished.")
+```
+
+# Code Explanation
+
+Consider this code:
+
+```python
+try:
+    a = 10
+    b = 0
+
+    print("Execution start")
+    print(a + b)
+    print(a - b)
+    print(a / b)
+    print(a * b)
+    print(a * b)
+
+except ZeroDivisionError as e:
+    print("Do not divide any number by zero")
+    print("Exception description is:", e)
+
+print("Execution stopped")
+```
+
+## Step-by-Step Execution
+
+1. Python starts executing the `try` block line by line.
+
+```python
+a = 10
+```
+
+This executes successfully.
+
+```python
+b = 0
+```
+
+This also executes successfully.
+
+```python
+print("Execution start")
+```
+
+Output:
+
+```text
+Execution start
+```
+
+Then:
+
+```python
+print(a + b)
+```
+
+Output:
+
+```text
+10
+```
+
+Then:
+
+```python
+print(a - b)
+```
+
+Output:
+
+```text
+10
+```
+
+2. Python reaches:
+
+```python
+print(a / b)
+```
+
+Python tries to perform:
+
+```text
+10 / 0
+```
+
+Division by zero is not allowed.
+
+Therefore, Python raises:
+
+```text
+ZeroDivisionError
+```
+
+3. When an exception occurs inside the `try` block, Python immediately stops executing the remaining statements in that block.
+
+Therefore, these statements are skipped:
+
+```python
+print(a * b)
+print(a * b)
+```
+
+4. Python looks for a matching `except` block.
+
+It finds:
+
+```python
+except ZeroDivisionError as e:
+```
+
+So the `except` block executes.
+
+5. After the `except` block finishes, Python continues executing the statements after the complete `try-except` structure.
+
+```python
+print("Execution stopped")
+```
+
+## Final Output
+
+```text
+Execution start
+10
+10
+Do not divide any number by zero
+Exception description is: division by zero
+Execution stopped
+```
+
+## Important Rule
+
+When an exception occurs inside a `try` block, Python immediately stops executing the remaining statements in that `try` block and jumps to the matching `except` block.
+
+# What Happens When There Is No Matching except?
+
+If an exception occurs and there is no matching `except` block, Python cannot handle the exception.
+
+The program terminates and displays the error message.
+
+### Simple Explanation
+
+```text
+Matching except exists → Exception is handled
+No matching except → Program terminates
+```
+
+## Generic except
+
+A generic `except` can catch exceptions without specifying the exception type.
+
+```python
+try:
+    x = 10 / 0
+
+except:
+    print("Some error occurred")
+```
+
+Output:
+
+```text
+Some error occurred
+```
+
+However, using a specific exception type is generally better because it makes the program easier to understand and debug.
+
+# Basic to Medium-Level try-except Examples
+
+## 1. Division by Zero
+
+```python
+try:
+    result = 10 / 0
+
+except ZeroDivisionError:
+    print("You cannot divide by zero!")
+```
+
+Output:
+
+```text
+You cannot divide by zero!
+```
+
+## 2. ValueError
+
+```python
+try:
+    age = int(input("Enter your age: "))
+    print("Your age is", age)
+
+except ValueError:
+    print("Please enter a valid number!")
+```
+
+### Example Inputs
+
+| Input  | Output                         |
+| ------ | ------------------------------ |
+| `25`   | `Your age is 25`               |
+| `abc`  | `Please enter a valid number!` |
+| `25.5` | `Please enter a valid number!` |
+| `-10`  | `Your age is -10`              |
+
+## 3. IndexError
+
+```python
+try:
+    nums = [10, 20, 30]
+    print(nums[5])
+
+except IndexError:
+    print("Index out of range!")
+```
+
+Output:
+
+```text
+Index out of range!
+```
+
+A list containing three elements has indexes `0`, `1`, and `2`. Therefore, index `5` causes an `IndexError`.
+
+## 4. Multiple Exceptions
+
+```python
+try:
+    a = int(input("Enter number: "))
+    b = int(input("Enter divisor: "))
+
+    print("Result:", a / b)
+
+except ValueError:
+    print("Invalid input! Please enter numbers only.")
+
+except ZeroDivisionError:
+    print("You cannot divide by zero!")
+```
+
+### Example Inputs and Outputs
+
+| First Input | Second Input | Output                                      |
+| ----------- | ------------ | ------------------------------------------- |
+| `10`        | `2`          | `Result: 5.0`                               |
+| `abc`       | `2`          | `Invalid input! Please enter numbers only.` |
+| `10`        | `0`          | `You cannot divide by zero!`                |
+| `10`        | `xyz`        | `Invalid input! Please enter numbers only.` |
+
+## 5. FileNotFoundError
+
+```python
+try:
+    f = open("data.txt", "r")
+    print(f.read())
+    f.close()
+
+except FileNotFoundError:
+    print("File not found!")
+```
+
+## 6. try-except-else
+
+```python
+try:
+    num = int(input("Enter a number: "))
+
+except ValueError:
+    print("Not a number!")
+
+else:
+    print("You entered:", num)
+```
+
+The `else` block runs only when no exception occurs.
+
+## 7. finally
+
+```python
+try:
+    x = 10 / 0
+
+except ZeroDivisionError:
+    print("Error!")
+
+finally:
+    print("This will always execute.")
+```
+
+Output:
+
+```text
+Error!
+This will always execute.
+```
+
+## 8. Catching Exceptions Using Exception
+
+```python
+try:
+    a = int("hello")
+
+except Exception as e:
+    print("Something went wrong:", e)
+```
+
+Output:
+
+```text
+Something went wrong: invalid literal for int() with base 10: 'hello'
+```
+
+## 9. KeyError
+
+```python
+try:
+    data = {"name": "Jani"}
+    print(data["age"])
+
+except KeyError:
+    print("Key not found in dictionary!")
+```
+
+## 10. Exception Handling in a Function
+
+```python
+def divide(a, b):
+    try:
+        return a / b
+
+    except ZeroDivisionError:
+        return "Cannot divide by zero!"
+
+print(divide(10, 0))
+print(divide(10, 2))
+```
+
+Output:
+
+```text
+Cannot divide by zero!
+5.0
+```
+
+# Nested try-except
+
+A `try` block can contain another `try-except` block.
+
+### Example
+
+```python
+try:
+    a = int(input("Enter a number: "))
+
+    try:
+        result = 10 / a
+        print("Result:", result)
+
+    except ZeroDivisionError:
+        print("You cannot divide by zero inside the inner try block.")
+
+except ValueError:
+    print("Please enter a valid integer.")
+```
+
+### Test Cases
+
+| Input | Output                                                  |
+| ----- | ------------------------------------------------------- |
+| `2`   | `Result: 5.0`                                           |
+| `0`   | `You cannot divide by zero inside the inner try block.` |
+| `abc` | `Please enter a valid integer.`                         |
+
+## Explanation
+
+The outer `try` handles the input conversion.
+
+The inner `try` handles the division operation.
+
+This allows different exceptions to be handled at different levels.
+
+# try-except-else
+
+```python
+try:
+    num = int(input("Enter a number: "))
+    print("You entered:", num)
+
+except ValueError:
+    print("That's not a valid number!")
+
+else:
+    print("No error occurred, so the else block runs.")
+```
+
+### Input: 10
+
+Output:
+
+```text
+You entered: 10
+No error occurred, so the else block runs.
+```
+
+### Input: abc
+
+Output:
+
+```text
+That's not a valid number!
+```
+
+The `else` block does not execute when an exception occurs.
+
+# Real-Life Example: ATM Simulation
+
+```python
+try:
+    pin = int(input("Enter your 4-digit PIN: "))
+
+    if pin == 1234:
+        print("PIN accepted.")
+
+        try:
+            amount = float(input("Enter amount to withdraw: "))
+            balance = 10000.0
+
+            if amount > balance:
+                raise ValueError("Insufficient balance.")
+            else:
+                print("Collect your cash: ₹", amount)
+
+        except ValueError as ve:
+            print("Transaction failed:", ve)
+
+        else:
+            print("Transaction completed successfully.")
+
+    else:
+        print("Incorrect PIN.")
+
+except ValueError:
+    print("PIN must be numeric!")
+```
+
+### Test Cases
+
+| PIN    |  Amount | Output                                                       |
+| ------ | ------: | ------------------------------------------------------------ |
+| `1234` |  `5000` | PIN accepted, cash collected, transaction completed          |
+| `1234` | `20000` | PIN accepted, transaction failed due to insufficient balance |
+| `abcd` |       — | PIN must be numeric                                          |
+| `1111` |       — | Incorrect PIN                                                |
+
+# Division Using try-except-else
+
+```python
+try:
+    a = int(input("Enter numerator: "))
+    b = int(input("Enter denominator: "))
+
+    result = a / b
+
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+
+except ValueError:
+    print("Error: Please enter valid integers.")
+
+else:
+    print("Division successful!")
+    print("Result is:", result)
+```
+
+### Successful Execution
+
+Input:
+
+```text
+Enter numerator: 10
+Enter denominator: 2
+```
+
+Output:
+
+```text
+Division successful!
+Result is: 5.0
+```
+
+### ZeroDivisionError
+
+Input:
+
+```text
+Enter numerator: 10
+Enter denominator: 0
+```
+
+Output:
+
+```text
+Error: Division by zero is not allowed.
+```
+
+# Division Using try-except-else-finally
+
+```python
+try:
+    a = int(input("Enter numerator: "))
+    b = int(input("Enter denominator: "))
+
+    result = a / b
+
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+
+except ValueError:
+    print("Error: Please enter valid integers.")
+
+else:
+    print("Division successful!")
+    print("Result is:", result)
+
+finally:
+    print("Program has finished execution.")
+```
+
+### Successful Execution
+
+Input:
+
+```text
+Enter numerator: 20
+Enter denominator: 4
+```
+
+Output:
+
+```text
+Division successful!
+Result is: 5.0
+Program has finished execution.
+```
+
+### Division by Zero
+
+Input:
+
+```text
+Enter numerator: 5
+Enter denominator: 0
+```
+
+Output:
+
+```text
+Error: Division by zero is not allowed.
+Program has finished execution.
+```
+
+### Invalid Input
+
+Input:
+
+```text
+Enter numerator: ten
+```
+
+Output:
+
+```text
+Error: Please enter valid integers.
+Program has finished execution.
+```
+
+# Summary
+
+| Term        | Meaning                                                  |
+| ----------- | -------------------------------------------------------- |
+| Error       | A problem that prevents a program from working correctly |
+| SyntaxError | Error caused by breaking Python's grammar rules          |
+| Exception   | A problem that occurs during program execution           |
+| `try`       | Contains code that may cause an exception                |
+| `except`    | Handles an exception                                     |
+| `else`      | Runs when no exception occurs                            |
+| `finally`   | Runs whether an exception occurs or not                  |
+| `raise`     | Used to manually raise an exception                      |
+
+## Easy Definition
+
+An exception is an error that occurs during program execution and can be handled using Python's exception-handling mechanisms.
+
+## One-Line Summary
+
+```text
+try → risky code
+except → handle the exception
+else → runs when there is no exception
+finally → always runs
+```
