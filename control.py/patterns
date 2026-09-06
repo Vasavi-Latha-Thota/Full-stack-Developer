@@ -1,0 +1,135 @@
+ n=5
+for i in range(1, n+1):
+     for j in range(1,i+1):
+        print('*', end=" ")
+   print() 
+
+n=4
+c=1 
+for i in range(1,n+1):
+    for j in range(1,i+1):
+        print(c,end="s")
+        c=c+1
+    print()
+
+#n=5
+for i in range(5,0,-1):
+    for j in range(i):
+        print("*", end="")
+    print() '''
+'''k=n
+for i in range(1,n+1):
+    for j in range(1,k+1):
+        print("*",end="")
+    k=k-1
+    print()'''
+#c=10
+'''for i in range(4,0,-1):
+    for j in range(i):
+        print(c,end=" ")
+        c=c-1
+#     print() '''
+# for i in range(1,n+1):
+#     for j in range(1,i+1):
+#         print(j,end="")
+#     print() 
+'n = 6
+for i in range(1,n+1):
+    for j in range(n-i,0,-1):
+        print(" ",end="")
+    for k in range(1, 2 * i):
+        print("*",end="")
+    print()'''
+# n=5
+# for i in range(1,n+1):
+#     for j in range(1,i):
+#         print(" ",end="")
+#     for k in range(2*(n-i)+1):
+#         print("*",end="")
+#     print()    
+        
+n=int(input())
+for i in range(1,n+1):
+    for j in range(1,n+1):
+        print("*")
+        
+n=int(input())
+for i in range(1,n+1):
+    for j in range(1,n+1):
+        print("*",end="")
+    print()
+    
+n=int(input())
+for i in range(1,n+1):
+    for j in range(i):
+        print("*",end="")
+    print() 
+    
+n=int(input())
+for i in range(1,n+1):
+    for j in range(n-i):
+        print(" ",end="")
+    for j in range(i):
+            print("*",end="")
+    print() 
+    
+n=int(input())
+for i in range(n,0,-1):
+    for j in range(i):
+        print("*",end="")
+    print() 
+
+n=int(input())
+for i in range(n):
+    for j in range(n):
+        if i==0 or i==n-1 or j==0 or j==n-1:
+            print("*",end="")
+        else:
+            print(" ",end="")
+    print()
+    
+n=int(input())
+for i in range(n):
+    for j in range(n):
+        if i==0 or j==0:
+            print("*",end="")
+        else:
+            print("",end="")
+    print() 
+    
+n=int(input())
+for i in range(n):
+    for j in range(n):
+        if i==j or i+j==n-1:
+            print("*",end=" ")
+        else:
+            print(" ",end="")
+    print()
+    
+n=int(input())
+for i in range(n):
+    for j in range(n):
+        if i==0 or i==n-1 or j==0 or j==n-1 or i==j or i+j==n-1 or i==n//2 or j==n//2:
+            print("*",end="")
+        else:
+            print("",end="")
+    print()
+    
+    
+
+    r = int(input())
+c = len(str(r))
+for i in range(r):
+    for j in range(r):
+        if(i == 0 or i == r - 1):
+            print(r, end = " ")
+        elif(j == 0 or j == r - 1):
+            print(r, end = " ")
+        else:
+            print(" " * c, end = " ")
+    print()   
+
+
+        
+    
+    
