@@ -10,7 +10,7 @@
 #positional arguments1:order is very very imp
 # def greet(name,age):
 #     print(f'name is {name} and age is {age}')
-# greet('ram',34)
+# greet('ram',34)s
 
 
 # return :
