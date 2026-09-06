@@ -1,0 +1,185 @@
+Generators
+
+How Generators Work
+Generators in Python are a special type of iterable, allowing users to iterate over data
+efficiently without storing everything in memory. They generate values lazily using the yield
+keyword, making them more memory-efficient than normal functions.
+Why Do We Need Generators?
+1. Memory Efficiency: Generators do not store the entire dataset in memory; they
+generate values on the fly.
+2. Performance Boost: Avoiding unnecessary storage of data speeds up execution,
+especially for large datasets.
+3. Infinite Sequences: They allow iterating over infinite sequences without running out
+of memory.
+4. Pipeline Processing: Useful in applications where data is processed in chunks, like
+streaming data from the internet.
+How Do Generators Work?
+A generator function looks like a normal function but uses the yield keyword instead of
+return. When the function is called, it does not execute immediately. Instead, it returns a
+generator object which can be iterated using a loop or the next() function.
+Example:
+
+def simple_generator():
+print("Start")
+yield 1
+yield 2
+yield 3
+print("End")
+# Create a generator object
+gen = simple_generator()
+
+Python
+print(next(gen)) # Output: Start \n 1
+print(next(gen)) # Output: 2
+print(next(gen)) # Output: 3 \n End
+print(next(gen)) # Raises StopIteration
+
+Here’s how it works:
+1. Calling simple_generator() creates a generator object but does not execute it.
+2. Using next(gen), execution starts until the first yield statement, returning the value.
+3. The function "pauses" and retains its state until the next next() call.
+4. Once all values are yielded, calling next() raises StopIteration.
+Example: Simple Generator
+
+def count_up_to(n):
+count = 1
+while count <= n:
+yield count
+count += 1
+counter = count_up_to(5)
+print(next(counter)) # Output: 1
+print(next(counter)) # Output: 2
+
+Difference Between Functions & Generators
+
+Feature Functions Generators
+Memory
+Usage
+
+Stores all values in memory Generates values one by one, saving
+
+memory
+
+Execution Runs once and returns a value Can pause execution and resume later
+return vs yield Uses return to return a single
+
+result
+
+Uses yield to produce multiple values
+
+Iteration Cannot be directly iterated over Can be used in a loop like an iterator
+
+Python
+
+Python
+Example: Function vs Generator
+Function Approach (Consumes More Memory)
+
+def square_numbers(n):
+result = []
+for i in range(n):
+result.append(i * i)
+return result
+print(square_numbers(5)) # Output: [0, 1, 4, 9, 16]
+
+Generator Approach (Efficient)
+
+def square_numbers(n):
+for i in range(n):
+yield i * i
+squares = square_numbers(5)
+print(next(squares)) # Output: 0
+print(next(squares)) # Output: 1
+
+Python
+
+Python
+yield and next() in Generators
+yield Keyword
+● The yield keyword allows a function to return multiple values without terminating the
+function.
+● The function "remembers" its state and continues execution from the last yield when
+next() is called.
+Example:
+
+def count_up_to(n):
+count = 1
+while count <= n:
+yield count
+count += 1
+counter = count_up_to(3)
+print(next(counter)) # Output: 1
+print(next(counter)) # Output: 2
+print(next(counter)) # Output: 3
+print(next(counter)) # Raises StopIteration
+
+next() Function
+● Used to manually iterate through generator values.
+● Moves the execution of the generator to the next yield statement.
+Example:
+
+def countdown(n):
+while n > 0:
+yield n
+n -= 1
+cd = countdown(3)
+print(next(cd)) # Output: 3
+print(next(cd)) # Output: 2
+print(next(cd)) # Output: 1
+print(next(cd)) # Raises StopIteration
+
+Python
+
+Python
+Real-World Applications of Generators
+1. Streaming Large Data (YouTube, Netflix)
+YouTube and Netflix use generators to stream video content efficiently without loading the
+entire video into memory.
+Example:
+
+def stream_video(chunks):
+for chunk in chunks:
+yield chunk # Yields video chunks on demand
+video_chunks = ["Chunk1", "Chunk2", "Chunk3"]
+player = stream_video(video_chunks)
+print(next(player)) # Output: Chunk1
+
+2. Infinite News Feed (Instagram, Twitter, Facebook)
+Social media platforms like Instagram and Twitter use generators to implement infinite
+scrolling, where posts are loaded dynamically as the user scrolls.
+Example:
+
+def fetch_posts():
+post_id = 1
+while True:
+yield f"Post {post_id}"
+post_id += 1
+news_feed = fetch_posts()
+print(next(news_feed)) # Output: Post 1
+print(next(news_feed)) # Output: Post 2
+
+Python
+
+Python
+3. Log File Processing (System Monitoring)
+Generators are used in log processing systems to read large log files efficiently, processing
+line by line without loading the entire file.
+Example:
+
+def read_log_file(file_path):
+with open(file_path) as file:
+for line in file:
+yield line.strip()
+logs = read_log_file("server.log")
+print(next(logs)) # Reads one line at a time
+
+4. Music Streaming (Spotify, Apple Music)
+Music streaming apps use generators to load and play songs chunk by chunk instead of
+downloading entire songs before playing.
+Example:
+
+def stream_music(tracks):
+for track in tracks:
+yield track
+playlist = stream_music(["Song1", "Song2", "Song3"])
+print(next(playlist)) # Output: Song1
