@@ -1,0 +1,215 @@
+Scope
+Definition
+Scope determines where a variable can be accessed within a program.
+A variable is only accessible within the region where it is defined.
+Types of Scope
+1. Local Scope
+2. Global Scope
+3. Global Keyword
+4. Nonlocal Scope (Nested Functions)
+1. Local Scope
+A variable declared inside a function is called a local variable.
+It can only be accessed inside that function.
+Example
+
+def student():
+name = "Teja"
+print(name)
+student()
+# Output:
+# Teja
+
+The variable name exists only inside the function.
+2. Global Scope
+A variable declared outside all functions is called a global variable.
+It can be accessed from anywhere in the program.
+
+Python
+
+Python
+
+Python
+Example
+
+company = "Codegnan"
+def display():
+print(company)
+display()
+# Output:
+# Codegnan
+
+Local vs Global Variable
+
+name = "Global Name"
+def display():
+name = "Local Name"
+print(name)
+display()
+print(name)
+# Output:
+# Local Name
+# Global Name
+
+Local variables get higher priority inside the function.
+Global Keyword
+Used when we want to modify a global variable inside a function.
+Example
+
+count = 10
+def update():
+global count
+count = 20
+update()
+print(count)
+# Output:
+# 20
+
+Python
+
+Python
+Nonlocal Scope
+Used in nested functions. Allows modification of variables from the outer function.
+Example
+
+def outer():
+count = 10
+def inner():
+nonlocal count
+count += 5
+inner()
+print(count)
+outer()
+# Output:
+# 15
+
+LEGB Rule
+Python searches variables in the following order:
+1. Local
+2. Enclosing
+3. Global
+4. Built-in
+Example
+
+x = 100
+def outer():
+x = 50
+def inner():
+x = 20
+print(x)
+inner()
+outer()
+# Output:
+# 20
+
+Python finds x in Local Scope first.
+
+Python
+Pass by Value and Pass by Reference
+Important Note
+Python technically uses Pass by Object Reference.
+For learning purposes:
+● Pass by Value → Immutable Objects
+● Pass by Reference → Mutable Objects
+Pass by Value
+When immutable objects are passed to a function, changes inside the function do not affect
+the original value.
+Immutable Types
+● int
+● float
+● bool
+● str
+● tuple
+● frozenset
+● complex
+Example
+
+def update(number):
+number = 100
+print("Inside Function:", number)
+value = 50
+update(value)
+print("Outside Function:", value)
+# Output:
+# Inside Function: 100
+# Outside Function: 50
+
+Original value remains unchanged.
+
+Python
+
+Python
+Pass by Reference
+When mutable objects are passed to a function, changes inside the function affect the
+original object.
+Mutable Types
+● list
+● set
+● dict
+Example
+
+def update(items):
+items.append("Laptop")
+cart = ["Mobile", "Watch"]
+update(cart)
+print(cart)
+# Output:
+# ['Mobile', 'Watch', 'Laptop']
+The original list changes.
+Example with Dictionary
+
+def update(profile):
+profile["city"] = "Hyderabad"
+customer = {
+"name": "Teja"
+}
+update(customer)
+print(customer)
+# Output:
+# {'name': 'Teja', 'city': 'Hyderabad'}
+
+Python
+Pass by Value vs Pass by Reference
+
+Feature Pass by Value Pass by Reference
+
+Original Data Changes No Yes
+Immutable Objects Yes No
+Mutable Objects No Yes
+Examples int, str, tuple list, set, dict
+
+Recursive Functions
+
+Definition
+A recursive function is a function that calls itself.
+Recursion continues until a stopping condition (Base Case) is reached.
+Structure of Recursion
+Every recursive function must have:
+1. Base Case
+2. Recursive Call
+Syntax
+
+def function():
+if base_condition:
+return
+function()
+
+Advantages of Recursion
+● Cleaner code
+● Suitable for tree structures
+● Suitable for graph traversal
+● Useful in divide-and-conquer algorithms
+● Reduces lengthy loop logic
+
+Python
+Disadvantages of Recursion
+● More memory usage
+● Slower than loops
+● Risk of RecursionError if base case is missing
+Infinite Recursion
+
+def test():
+test()
+test()
+
+This causes: RecursionError: maximum recursion depth exceeded Because
+there is no base case.
