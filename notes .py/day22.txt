@@ -1,0 +1,843 @@
+Inheritance:
+It is a process of inherits or aquires the properties and methods from one class to another class
+Single inheritance:
+If the single child class aquires properties and methods from single parent class is known as single inheritance
+Muliple inheritance:
+If the child class aquires properties and methods from more than one parent class is known as Muliple inheritance.
+Multi level inheritance:
+It is a chain of inheritance.
+Each class aquires properties and methods from its parent class , child class access  all methods from parent and grandparent classes.
+Hierarchical inheritance:
+If more than one child aquires properties and methods from one parent class is known as Hierarchical inheritance
+Hybrid inheritance:
+“If you implement the combination of two or more types of inheritance, it is known as hybrid inheritance.”
+Multiple inheritance:
+
+class Father:
+    def dance(self):
+        print("dancing")
+class Mother:
+    def cook(self):
+        print("cooking")
+class Child(Father,Mother):
+    def play(self):
+        print("playing")
+c=Child()
+c.dance()
+c.play()
+c.cook()
+
+single inheritance : example:1
+
+class User:
+    def login(self):
+        print("every user must be login")
+class Manager(User):
+    def manage_users(self):
+        print("manager can manage the users")
+
+m=Manager()
+m.login()
+m.manage_users()
+
+Multiple inheritance:
+
+class Father:
+    def dance(self):
+        print("dancing")
+class Mother:
+    def cook(self):
+        print("cooking")
+class Child(Father,Mother):
+    def play(self):
+        print("playing")
+c=Child()
+c.dance()
+c.play()
+c.cook()
+
+Example-2:
+class FrontendDev:
+    def developfrontend(self):
+        print("develop with the help of html,css,js,react")
+class BackendDev:
+    def developbackend(self):
+        print("develop with python,flask or django")
+class FullstackDev(FrontendDev,BackendDev):
+    def deploy(self):
+        print("deploy the full stack project on cloud platform")
+f=FullstackDev()
+f.deploy()
+f.developbackend()
+f.developfrontend()
+
+example:
+class A:
+    def m1(self):
+        print("i am m1() in class-A")
+class B:
+    def m2(self):
+        print("i am m2() in class-B")
+class C(A,B):
+    def m3(self):
+        print("i am m3() in class-C")
+ 
+c=C()
+c.m1()
+c.m2()
+c.m3()
+Example:
+class FrontendDev:
+    def developfrontend(self):
+        print("develop with the help of html,css,js,react")
+class BackendDev:
+    def developbackend(self):
+        print("develop with python,flask or django")
+class FullstackDev(FrontendDev,BackendDev):
+    def deploy(self):
+        print("deploy the full stack project on cloud platform")
+f=FullstackDev()
+f.deploy()
+f.developbackend()
+f.developfrontend()
+
+
+example:
+class A:
+    def m1(self):
+        print("i am m1() in class-A")
+class B:
+    def m1(self):
+        print("i am m1() in class-B")
+class C(A,B):
+    pass
+ 
+c=C()
+c.m1()
+print(C.__mro__)
+
+
+example of super()
+class Employee:
+    def __init__(self,ename,eid):
+        self.ename=ename
+        self.eid=eid
+ 
+class ChildEmployee(Employee):
+    def __init__(self,ename,eid,esal):
+        super().__init__(ename,eid)
+        self.esal=esal
+ 
+c=ChildEmployee("rajesh",102,20000)
+print(c.ename)
+print(c.eid)
+print(c.esal)
+
+
+
+
+
+
+
+Single inheritance:
+class Animal:
+    def sound(self):
+        print("animal is making sound!")
+class dog(Animal):
+    def barking(self):
+        print("dog is barking!")
+d=dog()
+d.barking()
+d.sound()
+a=Animal()
+a.sound()
+output:
+dog is barking!
+animal is making sound!
+animal is making sound!
+
+Multiple inheritance
+Multiple inheritance means a child class inherits from more than one parent class.
+
+class Father:
+    def skill1(self):
+        print("Father: Cooking")
+
+class Mother:
+    def skill2(self):
+        print("Mother: Dancing")
+
+class Child(Father, Mother):
+    def skill3(self):
+        print("Child: Singing")
+
+c = Child()
+c.skill1()
+c.skill2()
+c.skill3()
+
+output:
+Father: Cooking  
+Mother: Dancing  
+Child: Singing
+Use this example to explain:
+The child class has access to methods from both parents.
+There is no conflict in method names here.
+Important example:
+class A:
+    def m1(self):
+        print("i am m1 in the class-A")
+
+class B:
+    def m1(self):
+        print("i am m1 in the class-B")
+
+class C(B, A):  # Multiple Inheritance
+    def m1(self):
+        print("i am m1 in the class-C")
+
+c = C()
+c.m1()
+output:
+i am m1 in the class-C
+MRO (Method Resolution Order) Summary:
+Python searches methods in left-to-right order in the inheritance list.
+Once it finds the method, it stops searching further.
+
+Simple Example (Basic Level)
+class Father:
+    def skill1(self):
+        print("Father: Cooking")
+
+class Mother:
+    def skill2(self):
+        print("Mother: Dancing")
+
+class Child(Father, Mother):
+    def skill3(self):
+        print("Child: Singing")
+
+c = Child()
+c.skill1()
+c.skill2()
+c.skill3()
+Output:
+Father: Cooking  
+Mother: Dancing  
+Child: Singing
+ Use this example to explain:
+The child class has access to methods from both parents.
+There is no conflict in method names here.
+
+ 3. Real-Time Use Cases (Intermediate)
+
+ Example 1: Job Roles in IT Industry
+class Developer:
+    def develop(self):
+        print("Writes code")
+
+class Tester:
+    def test(self):
+        print("Tests application")
+
+class DevOpsEngineer(Developer, Tester):
+    def deploy(self):
+        print("Deploys the application")
+
+engg = DevOpsEngineer()
+engg.develop()
+engg.test()
+engg.deploy()
+ Concepts to Explain:
+DevOpsEngineer is a multi-skilled role
+Inherits both develop() and test() from different classes
+
+
+
+ Example 2: Student with Multiple Abilities
+class Sports:
+    def play(self):
+        print("Plays Football")
+
+class Music:
+    def sing(self):
+        print("Sings Songs")
+
+class Student(Sports, Music):
+    def study(self):
+        print("Studies Python")
+
+s = Student()
+s.play()
+s.sing()
+s.study()
+ Concepts to Explain:
+Real people or entities can have multiple roles/skills
+Multiple inheritance models that behavior
+
+ 4. Method Resolution Order (Advanced Level)
+ Conflict Example
+class A:
+    def show(self):
+        print("A")
+
+class B:
+    def show(self):
+        print("B")
+
+class C(A, B):
+    pass
+
+obj = C()
+obj.show()   # Output: A
+ Teach students:
+Python uses Method Resolution Order (MRO) to resolve conflicts
+Left-to-right order in class definition
+print(C.__mro__) # which is used to get order of methods
+
+ 5. Diamond Problem (Advanced)
+class A:
+    def show(self):
+        print("A")
+
+class B(A):
+    def show(self):
+        print("B")
+
+class C(A):
+    def show(self):
+        print("C")
+
+class D(B, C):
+    pass
+
+d = D()
+d.show()
+Output:
+B
+ Concept: Python follows C3 Linearization to resolve this
+
+Real-Time Use Case Summary Table
+Use Case
+Parent 1
+Parent 2
+Child Class
+IT Employee
+Developer
+Tester
+DevOps Engineer
+Student Life
+Sports
+Music
+Student
+Smart Device
+Camera
+Phone
+Smartphone
+Online System
+Auth Module
+Logging
+Secure System
+
+
+
+Multi level inheritance:
+It is chain  of inheritance,here each classs is inheriting from its parent
+Each class inherits from its parent, and the child class can access all methods from the parent and grandparent.
+
+
+class animal:
+    def eat(self):
+        print("eating")
+class dog(animal):
+    def bark(self):
+        print("barking")
+class babydog(dog):
+    def cry(self):
+        print("crying")
+b=babydog()
+b.cry()
+b.bark()
+b.eat()
+output:
+crying
+barking
+eating
+
+example:
+class Employee:
+    def work(self):
+        print("Working")
+
+class Developer(Employee):
+    def code(self):
+        print("Coding")
+
+class Intern(Developer):
+    def learn(self):
+        print("Learning")
+
+i = Intern()
+i.learn()   # From Intern
+i.code()    # From Developer (inherited)
+i.work()    # From Employee (inherited through Developer)
+
+
+
+Hierarchical inheritance:
+If two or more child classes inherits/ acquires properties and method from the parent class is known as hierarchical inheritance
+
+class Vehicle:
+    def fuel_type(self):
+        print("Uses fuel or battery")
+
+class Car(Vehicle):
+    def drive(self):
+        print("Driving the car")
+
+class Bike(Vehicle):
+    def ride(self):
+        print("Riding the bike")
+
+
+example:
+class animal:
+    def eat(self):
+        print("eating")
+class dog(animal):
+    def bark(self):
+        print("dog is barking")
+class cat(animal):
+    def meow(self):
+        print("cat is doing sound like meow")
+c=cat()
+c.meow()
+c.eat()
+d=dog()
+d.bark()
+d.eat()
+output:
+cat is doing sound like meow
+eating
+dog is barking
+eating
+
+Hybrid inheritance:
+“If you implement the combination of two or more types of inheritance, it is known as hybrid inheritance.”
+Example:
+class A:
+    def m1(self):
+        print("m1 method in A class")
+class B(A):
+    def m2(self):
+        print("m2 method in B class")
+class C(A):
+    def m3(self):
+        print("m3 method in C class")
+class D(B,C):
+    def m4(self):
+        print("m4 method in D class")
+
+d=D()
+d.m4()
+d.m2()
+output:
+m4 method in D class
+m2 method in B class
+
+Advantages of Inheritance
+Code Reusability
+ You don't need to write the same code again. You can reuse code from the parent class.
+Improved Code Organization
+ Related features can be grouped logically using parent-child relationships.
+Easy Maintenance
+ If a bug or change happens in the parent class, all child classes get updated automatically.
+Supports Real-World Mapping
+ Inheritance models real-world "is-a" relationships. (Example: Dog is an Animal)
+Extensibility
+ You can extend the functionality of existing classes without modifying them.
+Less Code, More Features
+ Inheritance reduces code duplication and allows you to add extra features in child classes.
+Applications of Inheritance
+Object-Oriented Programming
+Used to create modular, reusable, and scalable systems.
+GUI Applications
+E.g., Button, Window, Label classes inherit from a base Widget class.
+Game Development
+Player, Enemy, NPC → all inherit from Character class.
+E-commerce Systems
+Product, ElectronicsProduct, ClothingProduct → all inherit from Product class.
+Banking Applications
+Account → SavingsAccount, CurrentAccount
+Educational Apps
+User → Student, Teacher, Admin
+Web Frameworks
+Django, Flask, etc., use inheritance to define views, forms, models.
+
+Disadvantages:
+1. Tight Coupling
+ Meaning: The child class is dependent on the parent class.
+ Simple Example:
+If the parent class method name changes, the child class might stop working.
+class A:
+    def show(self):
+        print("Hello")
+
+class B(A):
+    def display(self):
+        self.show()  # using parent method
+
+# If we rename `show()` in A to `show_message()`, class B breaks.
+ Problem:
+Even a small change in the parent affects all the child classes.
+
+ 2. Can Be Confusing with Multiple Inheritance
+ Meaning: When a child class inherits from multiple parents, Python may get confused about which method to run if both parents have the same method name.
+ Simple Example:
+class A:
+    def greet(self):
+        print("Hello from A")
+
+class B:
+    def greet(self):
+        print("Hello from B")
+
+class C(A, B):
+    pass
+
+obj = C()
+obj.greet()  # Which greet? A or B?
+ Problem:
+You may not predict easily which method will run. Python follows MRO (Method Resolution Order), but it can be tricky for beginners.
+
+ 3. Slower Performance
+ Meaning: Inheritance may be slightly slower because Python checks the entire inheritance chain to find a method (especially in multiple levels).
+ Example:
+If class D → C → B → A, and you're calling a method from A using D's object, Python checks all classes in the chain.
+class A:
+    def msg(self):
+        print("Hi")
+
+class B(A): pass
+class C(B): pass
+class D(C): pass
+
+d = D()
+d.msg()  # Python checks D → C → B → A
+
+ 4. Less Flexibility
+ Meaning: If the parent class is not designed properly, child classes may face problems or cannot be customized easily.
+ Example:
+If a parent method does something you don’t need, and you can't easily override or skip it — you're stuck with it.
+
+ 5. Overuse Leads to Complexity
+ Meaning: If you use inheritance too much or unnecessarily, your code becomes hard to read and debug.
+ Example:
+If class A → B → C → D → E and you're trying to fix a bug in E, you'll waste time checking A, B, C, and D.
+
+ Simple Tip for Students:
+Use inheritance only when it truly makes sense.
+Use it to model "is-a" relationships, like:
+Dog is an Animal
+Teacher is a Person
+Avoid using inheritance just to reuse code — that’s what composition (using objects inside a class) is for.
+
+
+
+class Parent:
+    college="rice"
+    def show(self):
+        self.a=200
+        print("Hello from Parent")
+    def get_name(self):
+        return self.a
+
+class Child(Parent):
+    college="pace"
+    def show(self):
+        # super().show()  # calling parent method
+        self.a=10
+        print("i am a in child",self.a)
+        print("Hello from Child")
+        super().show()
+        print("a from super class:",super().get_name())
+        print(self.college)
+        print(Parent.college)
+
+c = Child()
+c.show()
+print(c.a)
+
+
+output:
+i am a in child 10
+Hello from Child
+Hello from Parent
+a from super class: 200
+pace
+rice
+200
+
+What is a Docstring in Python?
+A docstring (documentation string) is used to describe what a function, class, or module does.
+It is like a special comment that:
+Helps developers understand the purpose.
+Can be accessed at runtime using .__doc__.
+What is a docstring in Python?
+A docstring (documentation string) is a special type of string used to describe a function, class, or module.
+It works like a comment, but it can also be accessed at runtime using special functions like help() or .__doc__.
+Example:
+def greet(name): 
+"""This function greets the person with the provided name.""" 
+print("Hello,", name) 
+# Accessing docstring 
+print(greet.__doc__) 
+greet("Jani")
+output:
+This function greets the person with the provided name. 
+Hello, Jani 
+What is super() in Python?
+super() is a built-in function used to call the parent class’s methods or constructor inside the child class.
+
+ Use Cases of super():
+To reuse parent class constructor.
+To call parent class method from child class.
+To avoid rewriting same initialization logic
+
+ Practice Examples on super()
+ Example 1: Calling Parent Constructor
+class Parent:
+    def __init__(self):
+        print("Parent constructor called")
+
+class Child(Parent):
+    def __init__(self):
+        super().__init__()  # Calls Parent's constructor
+        print("Child constructor called")
+
+c = Child()
+ Output:
+Parent constructor called
+Child constructor called
+ Example 2: Calling Parent Method from Child
+class Parent:
+    def show(self):
+        print("Parent method")
+
+class Child(Parent):
+    def show(self):
+        super().show()   # Call parent method
+        print("Child method")
+
+c = Child()
+c.show()
+ Output:
+Parent method
+Child method
+
+ Example 3: Real-life Example – Employee and Manager
+class Employee:
+    def __init__(self, name):
+        self.name = name
+
+    def show(self):
+        print("Employee:", self.name)
+
+class Manager(Employee):
+    def __init__(self, name, department):
+        super().__init__(name)
+        self.department = department
+
+    def show(self):
+        super().show()
+        print("Department:", self.department)
+
+m = Manager("Jani", "IT")
+m.show() Output:
+Employee: Jani
+Department: IT
+
+
+
+
+
+ Top MCQs on super() (with Answers)
+
+ 1. What does super() do in Python?
+A. Calls a child class constructor
+B. Calls a parent class method/constructor
+C. Creates a new class
+D. None of the above
+ Answer: B
+
+ 2. What will be the output?
+class A:
+    def __init__(self):
+        print("A")
+
+class B(A):
+    def __init__(self):
+        super().__init__()
+        print("B")
+
+b = B()
+A. A
+B. B
+C. A B
+D. Error
+ Answer: C
+
+ 3. In which method is super() mostly used?
+A. Static method
+B. Constructor (__init__)
+C. Class method
+D. Private method
+ Answer: B
+
+ 4. Can super() be used to call parent class methods that are not overridden?
+A. Yes
+B. No
+Answer: A
+
+ 5. Which of the following is True about super()?
+A. super() only works in single inheritance
+B. super() can call the grandparent class directly
+C. super() refers to the immediate parent class
+D. super() replaces self
+ Answer: C
+
+
+
+ What is Hybrid Inheritance?
+Hybrid Inheritance is a combination of two or more types of inheritance.
+For example, combining:
+Single Inheritance
+Multiple Inheritance
+Multilevel Inheritance
+ It's used when real-world problems can't be represented using just one type of inheritance.
+
+ Real-life Analogy:
+Think of a Teacher who is:
+A Person (single inheritance)
+A SubjectExpert (multilevel)
+And also an Employee (multiple inheritance)
+
+ Simple Example Code: Hybrid Inheritance
+# Base class
+class Person:
+    def display(self):
+        print("I am a person.")
+
+# Single Inheritance
+class Student(Person):
+    def show(self):
+        print("I am a student.")
+
+# Another base class
+class Sports:
+    def play(self):
+        print("I play sports.")
+
+# Multiple + multilevel inheritance
+class CollegeStudent(Student, Sports):
+    def college_info(self):
+        print("I am a college student.")
+
+# Creating object
+cs = CollegeStudent()
+cs.display()       # From Person
+cs.show()          # From Student
+cs.play()          # From Sports
+cs.college_info()  # Own method
+
+ Output:
+I am a person.
+I am a student.
+I play sports.
+I am a college student.
+
+ Explanation for Students:
+Person is the base class.
+Student inherits from Person → Single Inheritance
+Sports is a separate class.
+CollegeStudent inherits from both Student and Sports → Multiple + Multilevel → Hybrid
+
+ Diagram (Text View)
+   Person      Sports
+      ↓           ↓
+   Student      ←
+        ↓
+   CollegeStudent
+
+Let me know if you'd like:
+A diagram image
+A Word/PDF note
+Practice questions on hybrid inheritance
+
+
+
+
+
+Another example 
+
+ Real-World Analogy: Employee System
+Imagine a company where:
+Everyone is a Person
+Some are Employees
+Some employees are Programmers
+Some employees are also Trainers
+Let’s represent this using hybrid inheritance.
+
+ Hybrid Inheritance Code Example:
+# Base class
+class Person:
+    def personal_info(self):
+        print("I am a person.")
+
+# Single Inheritance
+class Employee(Person):
+    def employee_info(self):
+        print("I am an employee.")
+
+# Another base class
+class Trainer:
+    def trainer_info(self):
+        print("I am a trainer.")
+
+# Hybrid: Programmer inherits from Employee and Trainer
+class Programmer(Employee, Trainer):
+    def programmer_info(self):
+        print("I am a programmer.")
+
+ Test the Classes
+p = Programmer()
+p.personal_info()      # From Person → multilevel
+p.employee_info()      # From Employee
+p.trainer_info()       # From Trainer → multiple inheritance
+p.programmer_info()    # Own method
+
+ Output:
+I am a person.
+I am an employee.
+I am a trainer.
+I am a programmer.
+
+ What makes it Hybrid?
+Inheritance Type
+In the Code Example
+Single Inheritance
+Employee inherits from Person
+Multiple Inheritance
+Programmer inherits from Employee and Trainer
+Multilevel Inheritance
+Programmer → Employee → Person
+Hybrid Inheritance
+Combines all the above
+
+
+ Diagram (Text View)
+   Person        Trainer
+      ↓             ↓
+   Employee     ←-----
+        ↓
+    Programmer
