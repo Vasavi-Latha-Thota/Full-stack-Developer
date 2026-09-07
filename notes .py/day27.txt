@@ -1,0 +1,738 @@
+# NumPy – Methods and Usage
+
+NumPy is mainly used for arrays, mathematical operations, statistics, and linear algebra.
+
+## 1. Creating NumPy Arrays
+
+### Method 1: 1D, 2D, and 3D Arrays
+
+```python
+import numpy as np
+
+# 1D array
+arr1 = np.array([1, 2, 3, 4, 5])
+print(arr1)
+```
+
+**Output**
+
+```text
+[1 2 3 4 5]
+```
+
+A 1D array is similar to a list-like structure containing elements in a single dimension.
+
+### 2D Array
+
+```python
+arr2 = np.array([[1, 2, 3], [4, 5, 6]])
+print(arr2)
+```
+
+**Output**
+
+```text
+[[1 2 3]
+ [4 5 6]]
+```
+
+A 2D array contains rows and columns and is commonly used to represent tables or matrices.
+
+### 3D Array
+
+```python
+arr3 = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+print(arr3)
+```
+
+**Output**
+
+```text
+[[[1 2]
+  [3 4]]
+
+ [[5 6]
+  [7 8]]]
+```
+
+A 3D array contains multiple 2D arrays and is commonly used in image processing and machine learning.
+
+### Method 2: Arrays with Specific Values
+
+```python
+zeros = np.zeros((3, 3))
+print(zeros)
+```
+
+**Output**
+
+```text
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+```
+
+Creates a 3 × 3 matrix filled with zeros.
+
+```python
+ones = np.ones((2, 4))
+print(ones)
+```
+
+**Output**
+
+```text
+[[1. 1. 1. 1.]
+ [1. 1. 1. 1.]]
+```
+
+Creates an array filled with ones.
+
+```python
+identity = np.eye(4)
+print(identity)
+```
+
+**Output**
+
+```text
+[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]]
+```
+
+Creates an identity matrix where the diagonal elements are 1 and the remaining elements are 0.
+
+```python
+full_array = np.full((2, 3), 7)
+print(full_array)
+```
+
+**Output**
+
+```text
+[[7 7 7]
+ [7 7 7]]
+```
+
+Creates an array filled with the specified value.
+
+### Method 3: Range of Numbers
+
+```python
+range_arr = np.arange(1, 11, 2)
+print(range_arr)
+```
+
+**Output**
+
+```text
+[1 3 5 7 9]
+```
+
+`np.arange()` works similarly to Python's `range()` but returns a NumPy array.
+
+```python
+lin_space = np.linspace(0, 100, 5)
+print(lin_space)
+```
+
+**Output**
+
+```text
+[  0.  25.  50.  75. 100.]
+```
+
+`np.linspace()` generates numbers that are equally spaced within a given range.
+
+## 2. Random Number Generation
+
+### Random Integers
+
+```python
+rand_int = np.random.randint(1, 100, (3, 3))
+print(rand_int)
+```
+
+**Sample Output**
+
+```text
+[[45 12 78]
+ [66 23 89]
+ [10 55 91]]
+```
+
+Generates random integers between the specified limits.
+
+### Random Floating-Point Numbers
+
+```python
+rand_float = np.random.rand(3, 3)
+print(rand_float)
+```
+
+**Output**
+
+```text
+[[0.23 0.56 0.88]
+ [0.11 0.44 0.67]
+ [0.90 0.12 0.33]]
+```
+
+Generates random floating-point values between 0 and 1.
+
+### Random Normal Distribution
+
+```python
+rand_norm = np.random.randn(3, 3)
+print(rand_norm)
+```
+
+Generates random values based on a standard normal distribution, with values generally centered around 0.
+
+It is commonly used in statistics and machine learning.
+
+### Random Choice
+
+```python
+rand_choice = np.random.choice([10, 20, 30, 40, 50], 5)
+print(rand_choice)
+```
+
+**Sample Output**
+
+```text
+[30 10 50 20 40]
+```
+
+Selects random elements from the given array.
+
+### Random Seed
+
+```python
+np.random.seed(42)
+
+rand_arr = np.random.rand(5)
+print(rand_arr)
+```
+
+**Output**
+
+```text
+[0.37454012 0.95071431 0.73199394 0.59865848 0.15601864]
+```
+
+A seed produces reproducible random values. This is useful for testing, experiments, and machine learning.
+
+## 3. Shape and Reshaping
+
+```python
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+
+print(arr.shape)
+```
+
+**Output**
+
+```text
+(2, 3)
+```
+
+The array contains 2 rows and 3 columns.
+
+### Reshape
+
+```python
+reshaped = arr.reshape(3, 2)
+print(reshaped)
+```
+
+**Output**
+
+```text
+[[1 2]
+ [3 4]
+ [5 6]]
+```
+
+The total number of elements must remain the same when reshaping an array.
+
+### Flatten
+
+```python
+print(arr.flatten())
+```
+
+**Output**
+
+```text
+[1 2 3 4 5 6]
+```
+
+`flatten()` converts a multidimensional array into a 1D array.
+
+### Transpose
+
+```python
+print(arr.T)
+```
+
+**Output**
+
+```text
+[[1 4]
+ [2 5]
+ [3 6]]
+```
+
+Transpose changes rows into columns and columns into rows.
+
+## 4. Indexing and Slicing
+
+```python
+arr = np.array([10, 20, 30, 40, 50])
+
+print(arr[0])
+print(arr[-1])
+```
+
+**Output**
+
+```text
+10
+50
+```
+
+### Slicing
+
+```python
+print(arr[1:4])
+print(arr[:3])
+print(arr[::2])
+```
+
+**Output**
+
+```text
+[20 30 40]
+[10 20 30]
+[10 30 50]
+```
+
+### 2D Slicing
+
+```python
+matrix = np.array([[10, 20, 30],
+                   [40, 50, 60],
+                   [70, 80, 90]])
+
+print(matrix[1, 2])
+```
+
+**Output**
+
+```text
+60
+```
+
+Accesses the element at row index 1 and column index 2.
+
+```python
+print(matrix[:, 1])
+```
+
+**Output**
+
+```text
+[20 50 80]
+```
+
+Selects column index 1 from all rows.
+
+```python
+print(matrix[0:2, 1:3])
+```
+
+**Output**
+
+```text
+[[20 30]
+ [50 60]]
+```
+
+## 5. Mathematical Operations
+
+```python
+arr = np.array([1, 2, 3, 4, 5])
+
+print(arr + 10)
+print(arr * 2)
+print(arr ** 2)
+print(np.sqrt(arr))
+```
+
+**Output**
+
+```text
+[11 12 13 14 15]
+[ 2  4  6  8 10]
+[ 1  4  9 16 25]
+[1.         1.41421356 1.73205081 2.         2.23606798]
+```
+
+NumPy supports element-wise mathematical operations without explicitly writing loops.
+
+### Aggregate Functions
+
+```python
+print(np.sum(arr))
+print(np.mean(arr))
+print(np.median(arr))
+print(np.std(arr))
+print(np.var(arr))
+print(np.min(arr))
+print(np.max(arr))
+```
+
+**Output**
+
+```text
+15
+3.0
+3.0
+1.414
+2.0
+1
+5
+```
+
+### Cumulative Functions
+
+```python
+print(np.cumsum(arr))
+print(np.cumprod(arr))
+```
+
+**Output**
+
+```text
+[ 1  3  6 10 15]
+[  1   2   6  24 120]
+```
+
+`cumsum()` calculates cumulative sums, while `cumprod()` calculates cumulative products.
+
+## 6. Boolean Indexing
+
+```python
+arr = np.array([10, 20, 30, 40, 50])
+
+print(arr > 25)
+```
+
+**Output**
+
+```text
+[False False  True  True  True]
+```
+
+We can use Boolean indexing to filter values.
+
+```python
+print(arr[arr > 25])
+```
+
+**Output**
+
+```text
+[30 40 50]
+```
+
+Boolean indexing is very useful for data filtering and data analysis.
+
+## 7. Linear Algebra
+
+```python
+A = np.array([[1, 2],
+              [3, 4]])
+
+B = np.array([[5, 6],
+              [7, 8]])
+
+print(np.dot(A, B))
+```
+
+**Output**
+
+```text
+[[19 22]
+ [43 50]]
+```
+
+### Determinant
+
+```python
+print(np.linalg.det(A))
+```
+
+**Output**
+
+```text
+-2.0000000000000004
+```
+
+### Inverse
+
+```python
+print(np.linalg.inv(A))
+```
+
+**Output**
+
+```text
+[[-2.   1. ]
+ [ 1.5 -0.5]]
+```
+
+### Eigenvalues and Eigenvectors
+
+```python
+eigenvalues, eigenvectors = np.linalg.eig(A)
+
+print(eigenvalues)
+print(eigenvectors)
+```
+
+Eigenvalues and eigenvectors are important concepts in linear algebra and are used in some machine learning and data science applications.
+
+### Solving Linear Equations
+
+```python
+C = np.array([5, 11])
+
+print(np.linalg.solve(A, C))
+```
+
+**Output**
+
+```text
+[1. 2.]
+```
+
+## 8. Sorting and Unique Values
+
+```python
+arr = np.array([3, 1, 4, 1, 5, 9, 2, 6])
+
+print(np.sort(arr))
+print(np.unique(arr))
+```
+
+**Output**
+
+```text
+[1 1 2 3 4 5 6 9]
+[1 2 3 4 5 6 9]
+```
+
+`np.sort()` sorts the array, while `np.unique()` returns only unique values.
+
+## 9. Stacking and Splitting
+
+### Vertical Stacking
+
+```python
+vertical = np.vstack((A, B))
+print(vertical)
+```
+
+**Output**
+
+```text
+[[1 2]
+ [3 4]
+ [5 6]
+ [7 8]]
+```
+
+### Horizontal Stacking
+
+```python
+horizontal = np.hstack((A, B))
+print(horizontal)
+```
+
+**Output**
+
+```text
+[[1 2 5 6]
+ [3 4 7 8]]
+```
+
+### Splitting
+
+```python
+split_arr = np.split(np.array([1, 2, 3, 4, 5, 6]), 3)
+print(split_arr)
+```
+
+**Output**
+
+```text
+[array([1, 2]), array([3, 4]), array([5, 6])]
+```
+
+`np.split()` divides an array into multiple smaller arrays.
+
+## 10. Copy vs View
+
+### View
+
+```python
+arr = np.array([10, 20, 30])
+
+view_arr = arr.view()
+view_arr[0] = 100
+
+print(arr)
+```
+
+**Output**
+
+```text
+[100  20  30]
+```
+
+A view shares the same underlying data with the original array. Changes made to the view can affect the original array.
+
+### Copy
+
+```python
+copy_arr = arr.copy()
+copy_arr[0] = 200
+
+print(arr)
+```
+
+**Output**
+
+```text
+[100  20  30]
+```
+
+A copy creates an independent array. Changes made to the copied array do not affect the original array.
+
+**Important Concept:**
+
+* View → Memory is shared
+* Copy → Separate memory
+
+# Main Differences Between Python List and NumPy Array
+
+| Feature                 | Python List                              | NumPy Array                                      |
+| ----------------------- | ---------------------------------------- | ------------------------------------------------ |
+| Data Type               | Can contain different data types         | Normally stores elements with a common data type |
+| Speed                   | Slower for numerical operations          | Faster for numerical operations                  |
+| Memory Efficiency       | Uses more memory                         | More memory efficient for numerical data         |
+| Mathematical Operations | Usually requires loops or comprehensions | Supports element-wise operations                 |
+| Large Data Processing   | Slower                                   | Faster due to vectorization                      |
+
+## 1. Data Type Support
+
+### Python List
+
+```python
+lst = [1, "apple", 3.5]
+print(lst)
+```
+
+Python lists can contain different data types such as integers, strings, and floating-point numbers.
+
+### NumPy Array
+
+```python
+import numpy as np
+
+arr = np.array([1, 2, 3])
+print(arr)
+```
+
+NumPy arrays generally store elements using a common data type.
+
+## 2. Speed Comparison
+
+```python
+import numpy as np
+import time
+
+# List addition
+lst1 = list(range(1_000_000))
+lst2 = list(range(1_000_000))
+
+start = time.time()
+
+result_list = [x + y for x, y in zip(lst1, lst2)]
+
+print("List time:", time.time() - start)
+
+# NumPy array addition
+arr1 = np.array(lst1)
+arr2 = np.array(lst2)
+
+start = time.time()
+
+result_arr = arr1 + arr2
+
+print("Array time:", time.time() - start)
+```
+
+The exact execution time depends on the computer and environment, but NumPy is generally much faster for large numerical operations because it uses optimized vectorized operations.
+
+## 3. Element-wise Operations
+
+### Python List
+
+```python
+lst = [1, 2, 3]
+
+doubled = [x * 2 for x in lst]
+
+print(doubled)
+```
+
+**Output**
+
+```text
+[2, 4, 6]
+```
+
+With a Python list, a loop or list comprehension is commonly used for element-wise mathematical operations.
+
+### NumPy Array
+
+```python
+arr = np.array([1, 2, 3])
+
+print(arr * 2)
+```
+
+**Output**
+
+```text
+[2 4 6]
+```
+
+NumPy supports direct element-wise mathematical operations through vectorization.
+
+# Summary
+
+| Feature                 | Python List                       | NumPy Array                        |
+| ----------------------- | --------------------------------- | ---------------------------------- |
+| Mixed Data Types        | Yes                               | Normally no                        |
+| Mathematical Operations | Usually need loops                | Direct element-wise operations     |
+| Speed                   | Slower for numerical calculations | Faster                             |
+| Memory Usage            | Higher                            | More efficient for numerical data  |
+| Large Data Processing   | Less efficient                    | More efficient                     |
+| Vectorization           | No                                | Yes                                |
+| Main Usage              | General-purpose data storage      | Numerical and scientific computing |
