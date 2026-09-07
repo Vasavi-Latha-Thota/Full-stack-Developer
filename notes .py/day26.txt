@@ -1,0 +1,394 @@
+# University Management System Project
+
+## What is this University Management System Project Doing?
+
+This project is a simple console-based program where we can:
+
+1. Register different types of people:
+
+   * Students
+   * Professors
+   * Admin Staff
+2. View the list of all registered people.
+
+We use OOP (Object-Oriented Programming) to make our code more structured and reusable.
+
+Instead of repeating code for each person type, we use a base class `Person` and create child classes such as `Student`, `Professor`, and `AdminStaff`.
+
+---
+
+# Complete Python Program
+
+```python
+# Importing Abstract Base Class tools
+from abc import ABC, abstractmethod
+
+
+# Base abstract class to represent any person in the university
+class Person(ABC):
+
+    def __init__(self, name, age):
+        self._name = name       # protected attribute
+        self._age = age
+
+    # Abstract method that child classes must implement
+    @abstractmethod
+    def get_role(self):
+        pass
+
+    # Common method to get name and age
+    def get_basic_info(self):
+        return f"Name: {self._name}, Age: {self._age}"
+
+    # Method to get full information including role
+    def get_details(self):
+        return f"{self.get_basic_info()}, Role: {self.get_role()}"
+
+
+# Student class that inherits from Person
+class Student(Person):
+
+    def __init__(self, name, age, student_id, course):
+        super().__init__(name, age)
+        self._student_id = student_id
+        self._course = course
+
+    # Role implementation
+    def get_role(self):
+        return "Student"
+
+    # Additional information specific to student
+    def get_student_info(self):
+        return (
+            f"{self.get_details()}, "
+            f"Student ID: {self._student_id}, "
+            f"Course: {self._course}"
+        )
+
+
+# Professor class that inherits from Person
+class Professor(Person):
+
+    def __init__(self, name, age, emp_id, department):
+        super().__init__(name, age)
+        self._emp_id = emp_id
+        self._department = department
+
+    def get_role(self):
+        return "Professor"
+
+    def get_professor_info(self):
+        return (
+            f"{self.get_details()}, "
+            f"Employee ID: {self._emp_id}, "
+            f"Department: {self._department}"
+        )
+
+
+# AdminStaff class that inherits from Person
+class AdminStaff(Person):
+
+    def __init__(self, name, age, staff_id, designation):
+        super().__init__(name, age)
+        self._staff_id = staff_id
+        self._designation = designation
+
+    def get_role(self):
+        return "Admin Staff"
+
+    def get_staff_info(self):
+        return (
+            f"{self.get_details()}, "
+            f"Staff ID: {self._staff_id}, "
+            f"Designation: {self._designation}"
+        )
+
+
+# University class to manage the list of people
+class University:
+
+    university_name = "Codegnan University"   # Class variable
+
+    def __init__(self):
+        self.__people = []   # Private list to store Person objects
+
+    def add_person(self, person: Person):
+        self.__people.append(person)
+
+    def display_all(self):
+        if not self.__people:
+            print("No people registered yet.")
+        else:
+            for person in self.__people:
+                print(person.get_details())
+
+    @classmethod
+    def get_university_name(cls):
+        return cls.university_name
+
+    @staticmethod
+    def welcome_message():
+        return "Welcome to the University Management System"
+
+
+# Start of the program
+print(University.welcome_message())
+print("University:", University.get_university_name())
+
+
+# Create University system object
+u = University()
+
+
+# Menu for user input
+while True:
+
+    print("\n--- University Menu ---")
+    print("1. Register Student")
+    print("2. Register Professor")
+    print("3. Register Admin Staff")
+    print("4. Display All People")
+    print("0. Exit")
+
+    ch = input("Choose an option: ")
+
+    if ch == "0":
+        print("Thank you! Exiting the system.")
+        break
+
+    elif ch == "1":
+
+        # Input student details
+        name = input("Enter Student Name: ")
+        age = int(input("Enter Age: "))
+        student_id = input("Enter Student ID: ")
+        course = input("Enter Course Name: ")
+
+        s = Student(name, age, student_id, course)
+
+        u.add_person(s)
+
+        print("Student Registered Successfully!")
+
+    elif ch == "2":
+
+        # Input professor details
+        name = input("Enter Professor Name: ")
+        age = int(input("Enter Age: "))
+        emp_id = input("Enter Employee ID: ")
+        dept = input("Enter Department: ")
+
+        p = Professor(name, age, emp_id, dept)
+
+        u.add_person(p)
+
+        print("Professor Registered Successfully!")
+
+    elif ch == "3":
+
+        # Input admin staff details
+        name = input("Enter Staff Name: ")
+        age = int(input("Enter Age: "))
+        staff_id = input("Enter Staff ID: ")
+        designation = input("Enter Designation: ")
+
+        a = AdminStaff(name, age, staff_id, designation)
+
+        u.add_person(a)
+
+        print("Admin Staff Registered Successfully!")
+
+    elif ch == "4":
+
+        # Display all registered people
+        print("\n--- List of Registered People ---")
+        u.display_all()
+
+    else:
+        print("Invalid option. Please choose again.")
+```
+
+---
+
+# Explanation of `add_person()`
+
+```python
+def add_person(self, person: Person):
+    self.__people.append(person)
+```
+
+Here:
+
+```python
+person: Person
+```
+
+is a **type annotation**.
+
+It indicates that the `person` parameter is expected to receive an object of the `Person` class or one of its child classes.
+
+For example:
+
+```python
+s = Student("Alice", 20, "S101", "Computer Science")
+
+u.add_person(s)
+```
+
+Here, `s` is a `Student` object.
+
+Since `Student` inherits from `Person`, it can be passed to:
+
+```python
+add_person(person: Person)
+```
+
+The object is then stored in:
+
+```python
+self.__people
+```
+
+which is a private list.
+
+---
+
+# OOP Concepts Used in This Project
+
+| Concept           | Example                                                                  |
+| ----------------- | ------------------------------------------------------------------------ |
+| Abstraction       | `Person` is an abstract class using `@abstractmethod`                    |
+| Inheritance       | `Student`, `Professor`, and `AdminStaff` inherit from `Person`           |
+| Encapsulation     | `_name`, `_age`, and `__people` demonstrate protected/private attributes |
+| Class Method      | `get_university_name()`                                                  |
+| Static Method     | `welcome_message()`                                                      |
+| Object Creation   | `Student("Alice", 20, "S101", "CS")`                                     |
+| Dynamic Input     | User enters details using `input()`                                      |
+| List of Objects   | `__people` stores multiple person objects                                |
+| Method Overriding | Each child class implements `get_role()`                                 |
+
+---
+
+# Sample Program Execution
+
+## Program Starts
+
+```text
+Welcome to the University Management System
+University: Codegnan University
+```
+
+## User Sees Menu
+
+```text
+--- University Menu ---
+1. Register Student
+2. Register Professor
+3. Register Admin Staff
+4. Display All People
+0. Exit
+Choose an option:
+```
+
+## Register a Student
+
+```text
+Choose an option: 1
+Enter Student Name: Alice
+Enter Age: 20
+Enter Student ID: S101
+Enter Course Name: Computer Science
+Student Registered Successfully!
+```
+
+## Register a Professor
+
+```text
+Choose an option: 2
+Enter Professor Name: Dr. Rao
+Enter Age: 45
+Enter Employee ID: P202
+Enter Department: Engineering
+Professor Registered Successfully!
+```
+
+## Register an Admin Staff
+
+```text
+Choose an option: 3
+Enter Staff Name: Nina
+Enter Age: 35
+Enter Staff ID: A303
+Enter Designation: Admissions Officer
+Admin Staff Registered Successfully!
+```
+
+## Display All Registered People
+
+```text
+Choose an option: 4
+
+--- List of Registered People ---
+Name: Alice, Age: 20, Role: Student
+Name: Dr. Rao, Age: 45, Role: Professor
+Name: Nina, Age: 35, Role: Admin Staff
+```
+
+## Exit the Program
+
+```text
+Choose an option: 0
+Thank you! Exiting the system.
+```
+
+---
+
+# Summary of Registered Entries
+
+Each registered person contains common and unique details.
+
+### Student
+
+```text
+Common:
+Name
+Age
+
+Unique:
+Student ID
+Course
+```
+
+### Professor
+
+```text
+Common:
+Name
+Age
+
+Unique:
+Employee ID
+Department
+```
+
+### Admin Staff
+
+```text
+Common:
+Name
+Age
+
+Unique:
+Staff ID
+Designation
+```
+
+# Project Summary
+
+The University Management System demonstrates how OOP can be used to build a simple real-world application.
+
+The `Person` class provides common functionality, while `Student`, `Professor`, and `AdminStaff` provide their own specific information.
+
+The `University` class manages all registered people using a private list.
+
+This project demonstrates **Abstraction, Inheritance, Encapsulation, Method Overriding, Class Methods, Static Methods, Type Annotations, Objects, and Lists of Objects**.
