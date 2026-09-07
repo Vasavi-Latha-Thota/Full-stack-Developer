@@ -736,3 +736,4 @@ NumPy supports direct element-wise mathematical operations through vectorization
 | Large Data Processing   | Less efficient                    | More efficient                     |
 | Vectorization           | No                                | Yes                                |
 | Main Usage              | General-purpose data storage      | Numerical and scientific computing |
+s
